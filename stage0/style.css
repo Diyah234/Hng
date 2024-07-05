@@ -1,0 +1,96 @@
+body{
+    background-color: white;
+    color: #633939;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+}
+.home{
+    display: flex;
+    flex-direction: row;
+   align-items: center;
+   
+    padding: 0 4rem;
+}
+img{
+   
+    width: 95%;
+}
+
+h1{
+    font-size: 60px;
+    line-height: 1.5;
+}
+h2{
+    font-size: 30px;
+    margin-left: 130px;
+}
+.line{
+    width: 60px;
+    background-color: #633939;
+    height: 5px;
+    margin-left: 120px;
+    margin-top: -20px;
+    margin-bottom: 20px;
+    font-weight: 300;
+}
+p{
+    font-size: 18px;
+    margin-top: -45px;
+}
+.emoji {
+    display: flex;
+    margin-top: -110px;
+    margin-left: 550px;
+    font-size: 80px;
+    animation: waving-hand 1.5s infinite;
+    transform-origin: 70% 70%;
+}
+@keyframes waving-hand {
+    0%{
+        transform: rotate(0deg);
+    }
+    10%{
+        transform: rotate(14deg);
+    }
+    20%{
+        transform: rotate(-8deg);
+    }
+    30%{
+        transform: rotate(14deg);
+    }
+    40%{
+        transform: rotate(-4deg);
+    }
+    50%{
+        transform: rotate(10deg);
+    }
+    60%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}
+
+.social{
+    margin-right: 30px;
+}
+.social:hover{
+    cursor: pointer;
+    transform: translateY(-10px);
+}
+
+
+/* about */
+.about{
+    margin-top: 2rem;
+}
+.about p{
+    width: 80%;
+    margin: 0 auto;
+    line-height: 1.5;
+    font-size: 20px;
+}
+.price{
+    color: red;
+}
