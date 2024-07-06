@@ -12,8 +12,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.get('/api/hello', async (req, res) => {
   try {
     // Retrieve client IP address from headers or socket
-    const clientIp = req.headers['x-real-ip'] || req.socket.remoteAddress;
-    const location = req.headers['x-vercel-ip-city'] || 'Unknown City';
+    const clientIp = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
+    const ipinfoToken = '3d88d907-5cd2-4c10-8302-64906a1419b8';
+    const locationResponse = await axios.get(`https://apiip.net/api/check?ip=${clientIp}?token=${ipinfoToken}`);
+    const locationData = locationResponse.data;
+    const location = locationData.city || 'Unknown City';
+
 
     // Log headers for debugging
     console.log('Headers:', req.headers);
