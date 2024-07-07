@@ -13,7 +13,7 @@ app.get('/api/hello', async (req, res) => {
     // const locationResponse = await axios.get("https://api.ipfind.com/me?auth=0e68b218-c41c-4df7-a5ed-6cffa0534985");
     // const location = locationResponse.data.city;
     // let clientIp = req.headers['x-forwarded-for'] || req.headers['x-real-ip'] || req.connection.remoteAddress;
-const location = req.headers["x-vercel-ip-city"]
+const location = "lagos"
     // Remove IPv6 prefix if present
     const clientIp = req.headers['x-vercel-forwarded-for']
     
