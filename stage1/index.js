@@ -2,7 +2,7 @@ const express = require('express');
 const axios = require('axios');
 const bodyParser = require('body-parser');
 const app = express();
-
+import { geolocation, ipAddress } from '@vercel/edge';
 
 app.use(bodyParser.urlencoded({extended: true}))
 
@@ -10,13 +10,12 @@ app.get('/api/hello', async (req, res) => {
 
   try {
     // Fetch location data based on the client's IP address
-    const locationResponse = await axios.get("https://api.ipfind.com/me?auth=0e68b218-c41c-4df7-a5ed-6cffa0534985");
-    const location = locationResponse.data.city;
-    let clientIp = req.headers['x-forwarded-for'] || req.headers['x-real-ip'] || req.connection.remoteAddress;
-
+    // const locationResponse = await axios.get("https://api.ipfind.com/me?auth=0e68b218-c41c-4df7-a5ed-6cffa0534985");
+    // const location = locationResponse.data.city;
+    // let clientIp = req.headers['x-forwarded-for'] || req.headers['x-real-ip'] || req.connection.remoteAddress;
+const location = geolocation(request)
     // Remove IPv6 prefix if present
-    clientIp = clientIp.replace(/^::ffff:/, '');
-
+    const clientIp = ipAddress(request)
     
 
     // Fetch weather data based on the location
